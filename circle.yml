@@ -14,19 +14,5 @@ test:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
     - find . -type f -regex ".*/target/failsafe-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
     
-test:
-  override:
-    - mkdir -p $CIRCLE_TEST_REPORTS/cucumber
-    - bundle exec cucumber --format junit --out $CIRCLE_TEST_REPORTS/cucumber/junit.xml
-    
-    test:
-  override:
-    - mkdir -p $CIRCLE_TEST_REPORTS/cucumber
-    - bundle exec cucumber --format pretty --format json --out $CIRCLE_TEST_REPORTS/cucumber/tests.cucumber
-    
-    test:
-  override:
-    - mkdir -p $CIRCLE_TEST_REPORTS/phpunit
-    - phpunit --log-junit $CIRCLE_TEST_REPORTS/phpunit/junit.xml tests
 
 
